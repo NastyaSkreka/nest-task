@@ -1,6 +1,7 @@
 import { Module } from "@nestjs/common";
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
     controllers: [], 
@@ -8,6 +9,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     imports: [
         UsersModule,
         MongooseModule.forRoot('mongodb+srv://skrekanastya:task@cluster0.s9zq8a2.mongodb.net/?retryWrites=true&w=majority'),
+        AuthModule,
     ]
 })
 
