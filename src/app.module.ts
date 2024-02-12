@@ -3,7 +3,6 @@ import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { PostsModule } from './posts/posts.module';
-import { FilesModule } from './files/files.module';
 import { ServeStaticModule } from "@nestjs/serve-static";
 import * as path from 'path';
 
@@ -18,7 +17,6 @@ import * as path from 'path';
         MongooseModule.forRoot('mongodb+srv://skrekanastya:task@cluster0.s9zq8a2.mongodb.net/?retryWrites=true&w=majority'),
         AuthModule,
         PostsModule,
-        FilesModule,
     ]
 })
 

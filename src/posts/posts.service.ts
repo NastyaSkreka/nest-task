@@ -4,21 +4,19 @@ import { Model } from 'mongoose';
 import { CreatePostDto } from './dto/create-post.dto';
 import { Post } from './posts.model';
 import { User } from 'src/users/users.model';
-import { FilesService } from 'src/files/files.service';
 
 @Injectable()
 export class PostsService {
 
     constructor(
         @InjectModel(Post.name) private postModel: Model<Post>,
-        @InjectModel(User.name) private userModel: Model<User>,
-        private filesService: FilesService,
+        @InjectModel(User.name) private userModel: Model<User>
     ) {}
 
-    async createPost(userId: string, dto: CreatePostDto, file: any): Promise<Post> {
+    async createPost(userId: string, dto: CreatePostDto): Promise<Post> {
         try {
-            const fileName = await this.filesService.createFile(file);
-            const createdPost = await this.postModel.create({ ...dto, userId, image: fileName });
+    
+            const createdPost = await this.postModel.create({ ...dto, userId});
 
             const user = await this.userModel.findById(userId);
 
