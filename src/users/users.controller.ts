@@ -20,5 +20,4 @@ export class UsersController {
     getAll() {
         return this.usersService.getAllUsers();
     }
-
 }
